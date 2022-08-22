@@ -39,7 +39,7 @@ The goal for this template is to have most of the things an application will hav
 If there are items you'd like added or prioritized let me know, you can open an issue adding the `enhancement` label.
 
 - [x] Firebase Initialization and Configuration.
-- [ x ] Authentication.
+- [ ] Authentication.
   - [ ] Auth page with login/signup form.
   - [ ] Add buttons for social login.
   - [ ] Separate the auth functions to a service.
