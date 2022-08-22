@@ -4,17 +4,17 @@ This is a starter templates for projects using Ionic, Angular, Capacitor, and Fi
 
 It covers the building block of most applications with:
 
-[x] Authentication.
+[] Authentication.
 
-[x] CRUD (_using Firestore_).
+[] CRUD (_using Firestore_).
 
-[x] Storage (_managing files in the cloud_).
+[] Storage (_managing files in the cloud_).
 
-[x] Cloud Functions.
+[] Cloud Functions.
 
-[x] Firebase Hosting.
+[] Firebase Hosting.
 
-[x] Push Notifications.
+[] Push Notifications.
 
 ## Description
 
