@@ -4,6 +4,7 @@ This is a starter templates for projects using Ionic, Angular, Capacitor, and Fi
 
 It covers the building block of most applications with:
 
+- [ ] Firebase Initialization and Configuration.
 - [ ] Authentication.
 - [ ] CRUD (_using Firestore_).
 - [ ] Storage (_managing files in the cloud_).
