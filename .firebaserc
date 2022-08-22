@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "js-mobile-dev-templates": {
+      "hosting": {
+        "app": [
+          "javebratt-ionic-firebase-template"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "js-mobile-dev-templates"
+  }
+}
