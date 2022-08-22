@@ -2,15 +2,7 @@
 
 This is a starter templates for projects using Ionic, Angular, Capacitor, and Firebase.
 
-It covers the building block of most applications with:
-
-- [ ] Firebase Initialization and Configuration.
-- [ ] Authentication.
-- [ ] CRUD (_using Firestore_).
-- [ ] Storage (_managing files in the cloud_).
-- [ ] Cloud Functions.
-- [ ] Firebase Hosting.
-- [ ] Push Notifications.
+It covers the building block of most applications.
 
 ## Description
 
@@ -36,13 +28,19 @@ TODO: List the main dependencies here and the version I'll use in the project.
 ionic serve
 ```
 
-## Help
+## Roadmap
 
-Any advise for common problems or issues.
+The goal for this template is to have most of the things an application will have, this is the current roadmap and the showcase of the progress.
 
-```sh
-command to run if program contains helper info
-```
+If there are items you'd like added or prioritized let me know, you can open an issue adding the `enhancement` label.
+
+- [ ] Firebase Initialization and Configuration.
+- [ ] Authentication.
+- [ ] CRUD (_using Firestore_).
+- [ ] Storage (_managing files in the cloud_).
+- [ ] Cloud Functions.
+- [ ] Firebase Hosting.
+- [ ] Push Notifications.
 
 ## Authors
 
