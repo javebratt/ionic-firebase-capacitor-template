@@ -1,6 +1,15 @@
-# Project Title
+# Ionic, Angular, Capacitor, and Firebase Template
 
-Simple overview of use/purpose.
+This is a starter templates for projects using Ionic, Angular, Capacitor, and Firebase.
+
+It covers the building block of most applications with:
+
+[x] Authentication.
+[x] CRUD (_using Firestore_).
+[x] Storage (_managing files in the cloud_).
+[x] Cloud Functions.
+[x] Firebase Hosting.
+[x] Push Notifications.
 
 ## Description
 
