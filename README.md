@@ -42,8 +42,8 @@ If there are items you'd like added or prioritized let me know, you can open an 
 - [ ] Authentication.
   - [ ] Auth page with login/signup form.
   - [ ] Add buttons for social login.
-  - [ ] Separate the auth functions to a service.
-  - [ ] Add send email verification to the signup form.
+  - [x] Separate the auth functions to a service.
+  - [x] Add send email verification to the signup form.
   - [ ] Check the Firebase Authentication Functions to add security checks (_For example, only verified emails can log in_).
 - [ ] CRUD (_using Firestore_).
   - [ ] Master/Detail: A list page with a detail page.
