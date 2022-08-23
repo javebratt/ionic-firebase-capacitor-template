@@ -6,76 +6,86 @@
   </h2>
 
   <form [formGroup]="authForm" class="login-page__auth-form">
-    <ion-item fill="outline" class="login-page__auth-form">
-      <ion-label position="floating">Email</ion-label>
+    <ion-item fill="outline" class="login-page__auth-item">
+      <ion-label position="floating" class="login-page__auth-item__label"
+        >Email</ion-label
+      >
       <ion-input
         type="email"
         placeholder="Your email address"
         clearInput="true"
-        required="true"
         formControlName="email"
+        class="login-page__auth-item__input"
       ></ion-input>
       <ion-note slot="helper"> Please enter your email.</ion-note>
-      <ion-note slot="error" class="input-error"
+      <ion-note slot="error" class="login-page__auth-item__error-note"
         >You must enter a valid email.</ion-note
       >
     </ion-item>
 
-    <ion-item fill="outline">
-      <ion-label position="floating">Password</ion-label>
+    <ion-item fill="outline" class="login-page__auth-item">
+      <ion-label position="floating" class="login-page__auth-item__label"
+        >Password</ion-label
+      >
       <ion-input
         type="password"
         placeholder="Password"
         clearInput="true"
-        required="true"
         formControlName="password"
+        class="login-page__auth-item__input"
       ></ion-input>
       <ion-note slot="helper"> Please enter your password.</ion-note>
-      <ion-note slot="error" class="input-error"
+      <ion-note slot="error" class="login-page__auth-item__error-note"
         >You must enter a valid email.</ion-note
       >
     </ion-item>
 
-    <ion-button (click)="login(authForm.value)" strong="true" expand="block"
+    <ion-button
+      class="login-page__login-button"
+      (click)="login(authForm.value)"
+      strong="true"
+      expand="block"
       >Sign In</ion-button
     >
   </form>
 
-  <ion-button expand="block" fill="clear" routerLink="/user/reset">
+  <ion-button
+    class="login-page__reset-button"
+    expand="block"
+    fill="clear"
+    routerLink="/user/reset"
+  >
     Forgot Password
   </ion-button>
 
-  <ion-button expand="block" fill="clear" routerLink="/user/signup">
+  <ion-button
+    class="login-page__signup-button"
+    expand="block"
+    fill="clear"
+    routerLink="/user/signup"
+  >
     Create a new account
   </ion-button>
 
-  <div class="alternate-container">
-    <div class="or-container">
-      <div class="horizontal-line"></div>
-      <ion-text color="dark" class="divider">
-        <p>or continue with</p>
-      </ion-text>
-      <div class="horizontal-line"></div>
-    </div>
+  <p class="ion-text-end">or continue with:</p>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button expand="block" fill="outline">
-            <ion-icon name="logo-apple"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button expand="block" fill="outline">
-            <ion-icon name="logo-google"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button expand="block" fill="outline">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" fill="outline">
+          <ion-icon name="logo-apple"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" fill="outline">
+          <ion-icon name="logo-google"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" fill="outline">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
