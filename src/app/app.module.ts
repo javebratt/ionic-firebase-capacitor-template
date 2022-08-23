@@ -16,6 +16,12 @@ import {
 } from '@angular/fire/firestore';
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import {
+  provideAnalytics,
+  getAnalytics,
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +30,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     IonicModule.forRoot(),
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideFirestore(() => {
       const firestore = getFirestore();
@@ -33,7 +40,9 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     provideFunctions(() => getFunctions()),
     provideStorage(() => getStorage()),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ScreenTrackingService,
+    UserTrackingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
