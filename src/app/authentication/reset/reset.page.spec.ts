@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AuthFormComponent } from './auth-form.component';
+import { ResetPage } from './reset.page';
 
-describe('AuthFormComponent', () => {
-  let component: AuthFormComponent;
-  let fixture: ComponentFixture<AuthFormComponent>;
+describe('ResetPage', () => {
+  let component: ResetPage;
+  let fixture: ComponentFixture<ResetPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthFormComponent ],
+      declarations: [ ResetPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AuthFormComponent);
+    fixture = TestBed.createComponent(ResetPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

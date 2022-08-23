@@ -1,0 +1,81 @@
+<ion-content [fullscreen]="true" class="ion-padding login-page">
+  <h1 class="ion-text-center login-page__title">MyApp Name</h1>
+
+  <h2 class="ion-text-center login-page__subtitle">
+    Welcome back, sign into your account
+  </h2>
+
+  <form [formGroup]="authForm" class="login-page__auth-form">
+    <ion-item fill="outline" class="login-page__auth-form">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+        type="email"
+        placeholder="Your email address"
+        clearInput="true"
+        required="true"
+        formControlName="email"
+      ></ion-input>
+      <ion-note slot="helper"> Please enter your email.</ion-note>
+      <ion-note slot="error" class="input-error"
+        >You must enter a valid email.</ion-note
+      >
+    </ion-item>
+
+    <ion-item fill="outline">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        type="password"
+        placeholder="Password"
+        clearInput="true"
+        required="true"
+        formControlName="password"
+      ></ion-input>
+      <ion-note slot="helper"> Please enter your password.</ion-note>
+      <ion-note slot="error" class="input-error"
+        >You must enter a valid email.</ion-note
+      >
+    </ion-item>
+
+    <ion-button (click)="login(authForm.value)" strong="true" expand="block"
+      >Sign In</ion-button
+    >
+  </form>
+
+  <ion-button expand="block" fill="clear" routerLink="/user/reset">
+    Forgot Password
+  </ion-button>
+
+  <ion-button expand="block" fill="clear" routerLink="/user/signup">
+    Create a new account
+  </ion-button>
+
+  <div class="alternate-container">
+    <div class="or-container">
+      <div class="horizontal-line"></div>
+      <ion-text color="dark" class="divider">
+        <p>or continue with</p>
+      </ion-text>
+      <div class="horizontal-line"></div>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="outline">
+            <ion-icon name="logo-apple"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" fill="outline">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" fill="outline">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

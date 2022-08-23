@@ -22,7 +22,7 @@ export class AuthenticationService {
     private readonly firestore: Firestore
   ) {}
 
-  getUser(): Observable<User> {
+  getUser(): Observable<User | null> {
     return authState(this.auth);
   }
 

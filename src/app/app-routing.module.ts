@@ -13,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'authentication',
+    path: 'user',
     loadChildren: () =>
       import('./authentication/authentication.module').then(
         (m) => m.AuthenticationPageModule
