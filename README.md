@@ -45,23 +45,27 @@ If there are items you'd like added or prioritized let me know, you can open an 
   - [x] Separate the auth functions to a service.
   - [x] Add send email verification to the signup form.
   - [ ] Check the Firebase Authentication Functions to add security checks (_For example, only verified emails can log in_).
+  - [ ] Add unit tests
 - [ ] CRUD (_using Firestore_).
   - [ ] Master/Detail: A list page with a detail page.
   - [ ] Check if I should add an update page or use the detail page as an update?
   - [ ] Add the ability to delete an item from the list (_Using sliding list items_)
   - [ ] Add the ability to delete an item from the item's detail page.
   - [ ] Explore the posibility of adding filters to demo querying capabilities..
+  - [ ] Add unit tests
 - [ ] Storage (_managing files in the cloud_).
   - [ ] Create a page to upload file.
   - [ ] Add another place to upload a picture with the capacitor camera.
   - [ ] Add a place to list the files the user has uploaded.
   - [ ] Add functionality to delete a file from storage.
+  - [ ] Add unit tests
 - [ ] Cloud Functions.
   - [ ] Add a cloud functions that deletes the firestore record for a file when you delete the file from storage.
   - [ ] Add a Cloud Function that deletes a file from storage when you delete that file's firestore record.
   - [ ] Add a cloud function that deletes all the information about a user when the user is deleted.
   - [ ] Create a function to send push notifications to a user.
   - [ ] Create a function to send push notifications to a bunch of users. (_This can be the same as before taking on parameters_).
+  - [ ] Add unit tests
 - [ ] Firebase Hosting.
   - [ ] Prepare all the hosting configuration.
   - [ ] Prepare the docs to let the user know what they need to modify.
