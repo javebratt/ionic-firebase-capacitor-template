@@ -6,27 +6,49 @@ It covers the building block of most applications.
 
 ## Description
 
-TODO: Add pictures of the pages once things are a bit more complete.
+This will be a template that will showcase multiple use-cases that help you build your next mobile app, either if you want to check out the code for help or inspiration, or download it and modify it to suit your needs.
+
+It will cover a fully working authentication system, interaction with the database, upload/download files from storage, accessing native device functionality, and more.
+
+> TODO: Add pictures of the pages once things are a bit more complete.
 
 ## Getting Started
 
-TODO: Describe how the user needs to configure the app to get started using them.
+> TODO: Add getting started once the authentication module is completed.
 
 ### Dependencies
 
-TODO: List the main dependencies here and the version I'll use in the project.
+The idea is to showcase Ionic, Angular, AngularFire, Capacitor, and rxjs. I'll add here the list and versions once the first module is completed.
+
+> TODO: List the main dependencies here and the version I'll use in the project.
 
 ### Installing
 
 TODO: Expand on this:
 
-- Download
-- Run npn install
-- Replace Firebase credentials.
+- Clone, Fork, Download this repo.
+- Run `npm install`.
+- Inside `environment.ts` and `environment.prod.ts` replace the Firebase credentials.
+- Inside `.firebaserc` replace the items for your firebase application:
+
+```json
+{
+  "targets": {
+    "js-mobile-dev-templates": {
+      "hosting": {
+        "app": ["javebratt-ionic-firebase-template"]
+      }
+    }
+  },
+  "projects": {
+    "default": "js-mobile-dev-templates"
+  }
+}
+```
 
 ### Executing program
 
-TODO: Adding the information about running the default application.
+Once you've changed your firebase information you'll be able to run the template with either ionic's or angular's CLI `serve` command.
 
 ```sh
 ionic serve
