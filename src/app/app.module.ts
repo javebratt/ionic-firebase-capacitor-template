@@ -16,6 +16,7 @@ import {
 } from '@angular/fire/firestore';
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { providePerformance, getPerformance } from '@angular/fire/performance';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     }),
     provideFunctions(() => getFunctions()),
     provideStorage(() => getStorage()),
+    providePerformance(() =>  getPerformance())
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
