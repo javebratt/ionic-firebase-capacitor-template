@@ -98,6 +98,14 @@ If there are items you'd like added or prioritized let me know, you can open an 
 
 Hi, I'm Jorge Vergara, If there's anything I can do to help you with let me know, you can reach me via Twitter at [@javebratt](https://twitter.com/javebratt).
 
+## Contributing
+
+First of all, thank you for wanting to help :)
+
+Right now the best way you can help contribute to this repo is by opening issues to help me decide where to go and what to prioritize.
+
+If you do want to open a PR for something, please reach out first, and we can talk about it to see if it fits 1) the roadmap, and 2) the vision I have for this template.
+
 ## Changelog
 
 In the future I'll list the latest change here, and with each release I'll add a more detailed version of the changelog at [CHANGELOG.md](/CHANGELOG.md)
