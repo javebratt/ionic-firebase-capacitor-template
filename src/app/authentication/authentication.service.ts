@@ -12,6 +12,7 @@ import {
 } from '@angular/fire/auth';
 import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
+import { AuthCredentials } from './authentication.models';
 
 @Injectable({
   providedIn: 'root',
@@ -57,9 +58,4 @@ export class AuthenticationService {
   logout(): Promise<void> {
     return signOut(this.auth);
   }
-}
-
-export interface AuthCredentials {
-  email: string;
-  password: string;
 }

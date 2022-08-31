@@ -16,11 +16,20 @@
         clearInput="true"
         formControlName="email"
         class="login-page__auth-item__input"
+        [class.invalid-input]="
+          !authForm.controls.email.valid &&
+          authForm.controls.email.touched
+        "
       ></ion-input>
-      <ion-note slot="helper"> Please enter your email.</ion-note>
-      <ion-note slot="error" class="login-page__auth-item__error-note"
-        >You must enter a valid email.</ion-note
+      <ion-note
+        slot="error"
+        *ngIf="
+          !authForm.controls.email?.valid &&
+          authForm.controls.email?.touched
+        "
       >
+        A valid email address is required
+      </ion-note>
     </ion-item>
 
     <ion-item fill="outline" class="login-page__auth-item">
@@ -33,11 +42,20 @@
         clearInput="true"
         formControlName="password"
         class="login-page__auth-item__input"
+        [class.invalid-input]="
+          !authForm.controls.password.valid &&
+          authForm.controls.password.touched
+        "
       ></ion-input>
-      <ion-note slot="helper"> Please enter your password.</ion-note>
-      <ion-note slot="error" class="login-page__auth-item__error-note"
-        >Your password needs to be at least 6 characters long.</ion-note
+      <ion-note
+        slot="error"
+        *ngIf="
+          !authForm.controls.password?.valid &&
+          authForm.controls.password?.touched
+        "
       >
+        A valid password is required
+      </ion-note>
     </ion-item>
 
     <ion-button
