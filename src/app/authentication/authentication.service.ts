@@ -11,7 +11,7 @@ import {
   UserCredential,
 } from '@angular/fire/auth';
 import { doc, Firestore, setDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +24,10 @@ export class AuthenticationService {
 
   getUser(): Observable<User | null> {
     return authState(this.auth);
+  }
+
+  isLoggedIn(): Observable<boolean> {
+    return this.getUser().pipe(map(Boolean));
   }
 
   login({ email, password }: AuthCredentials): Promise<UserCredential> {
