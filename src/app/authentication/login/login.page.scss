@@ -1,5 +1,24 @@
 .login-page {
+  &__subtitle {
+    margin-bottom: 16px;
+  }
+  &__auth-form {
+    ion-item {
+      margin-bottom: 16px;
+    }
+  }
   &__login-button {
     margin-top: 30px;
+  }
+  &__reset-button {
+    margin-top: 30px;
+  }
+  &__social-button-bar {
+    margin-top: 30px;
+    border: none;
+    --background: #ffffff;
+    ion-label {
+      color: #000000;
+    }
   }
 }

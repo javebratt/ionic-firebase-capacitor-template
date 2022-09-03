@@ -87,23 +87,14 @@
 
   <p class="ion-text-end">or continue with:</p>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button expand="block" fill="outline">
-          <ion-icon name="logo-apple"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" fill="outline">
-          <ion-icon name="logo-google"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" fill="outline">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-tab-bar class="login-page__social-button-bar">
+    <ion-tab-button fill="outline">
+      <ion-icon color="dark" size="large" name="logo-apple"></ion-icon>
+      <ion-label>Apple</ion-label>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-icon color="dark" size="large" name="logo-google"></ion-icon>
+      <ion-label>Google</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
 </ion-content>
