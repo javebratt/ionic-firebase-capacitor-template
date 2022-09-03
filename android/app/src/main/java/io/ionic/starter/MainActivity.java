@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.jsmobiledev.ionicFirebaseCapacitorStarter;
 
 import com.getcapacitor.BridgeActivity;
 

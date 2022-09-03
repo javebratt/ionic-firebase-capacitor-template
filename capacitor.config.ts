@@ -1,10 +1,10 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.jsmobiledev.ionicFirebaseCapacitorStarter',
   appName: 'ionic-firebase-capacitor-starter',
   webDir: 'www',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
 };
 
 export default config;
