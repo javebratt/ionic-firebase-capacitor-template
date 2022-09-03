@@ -13,12 +13,7 @@
   &__reset-button {
     margin-top: 30px;
   }
-  &__social-button-bar {
-    margin-top: 30px;
-    border: none;
-    --background: #ffffff;
-    ion-label {
-      color: #000000;
-    }
+  &__social-button {
+    margin-bottom: 16px;
   }
 }

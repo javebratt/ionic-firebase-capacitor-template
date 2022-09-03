@@ -67,6 +67,32 @@
     >
   </form>
 
+  <p class="ion-text-end login-page__social-login-label">or continue with:</p>
+
+  <ion-button
+    class="login-page__social-button"
+    fill="outline"
+    expand="block"
+    shape="round"
+    color="dark"
+    (click)="loginWithGoogle()"
+  >
+    <ion-icon slot="start" src="assets/icon/logo-google.svg"></ion-icon>
+    Sign in with Google
+  </ion-button>
+
+  <ion-button
+    class="login-page__social-button"
+    fill="outline"
+    expand="block"
+    shape="round"
+    color="dark"
+    (click)="loginWithApple()"
+  >
+    <ion-icon slot="start" src="assets/icon/logo-apple-black.svg"></ion-icon>
+    Sign in with Apple
+  </ion-button>
+
   <ion-button
     class="login-page__reset-button"
     expand="block"
@@ -84,17 +110,4 @@
   >
     Create a new account
   </ion-button>
-
-  <p class="ion-text-end">or continue with:</p>
-
-  <ion-tab-bar class="login-page__social-button-bar">
-    <ion-tab-button fill="outline">
-      <ion-icon color="dark" size="large" name="logo-apple"></ion-icon>
-      <ion-label>Apple</ion-label>
-    </ion-tab-button>
-    <ion-tab-button>
-      <ion-icon color="dark" size="large" name="logo-google"></ion-icon>
-      <ion-label>Google</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
 </ion-content>

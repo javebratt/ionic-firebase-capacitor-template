@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthCredentials } from '../authentication.models';
 import { AuthenticationService } from '../authentication.service';
+import { isPlatform } from '@ionic/angular';
+import { AuthCredentials } from '../authentication.models';
 
 @Component({
   selector: 'app-login',
@@ -32,5 +33,21 @@ export class LoginPage {
     this.authenticationService.login({ email, password }).then(() => {
       this.router.navigateByUrl('');
     });
+  }
+
+  loginWithGoogle() {
+    if (!isPlatform('capacitor')) {
+      this.authenticationService.loginWithGoogle();
+    } else {
+      console.log('I will implement native google login');
+    }
+  }
+
+  loginWithApple() {
+    if (!isPlatform('capacitor')) {
+      console.log('I will implement web apple login');
+    } else {
+      console.log('I will implement native apple login');
+    }
   }
 }
