@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { isPlatform } from '@ionic/angular';
 import { AuthCredentials } from '../authentication.models';
+import { AlertService } from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -21,18 +22,19 @@ export class LoginPage {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly authenticationService: AuthenticationService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly alertService: AlertService
   ) {}
 
   login({ email, password }: AuthCredentials): void {
-    // TODO: Add error handling for login.
-    // 1. Check the error that comes from the service.
-    // 2. Show the user an alert with a generic message
-    // independently if it is wrong password or no user found.
-    // 3. If the error is something different, explain.
-    this.authenticationService.login({ email, password }).then(() => {
-      this.router.navigateByUrl('');
-    });
+    this.authenticationService
+      .login({ email, password })
+      .then((userCredential) => {
+        this.router.navigateByUrl('');
+      })
+      .catch((error) => {
+        this.alertService.presentInformationAlert(error);
+      });
   }
 
   loginWithGoogle() {
