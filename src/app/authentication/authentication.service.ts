@@ -11,6 +11,8 @@ import {
   UserCredential,
   GoogleAuthProvider,
   signInWithPopup,
+  updateCurrentUser,
+  updateProfile,
 } from '@angular/fire/auth';
 import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
@@ -53,24 +55,51 @@ export class AuthenticationService {
     }
   }
 
-  async signup({ email, password }: AuthCredentials): Promise<User> {
+  async signup({ email, password, name }: AuthCredentials): Promise<User> {
     try {
       const newUserCredential: UserCredential =
         await createUserWithEmailAndPassword(this.auth, email, password);
+      await updateProfile(newUserCredential.user, {
+        displayName: name,
+      });
       const userReference = doc(
         this.firestore,
         `users/${newUserCredential.user.uid}`
       );
-      await setDoc(userReference, { email }, { merge: true });
+      await setDoc(userReference, { email, name }, { merge: true });
       await sendEmailVerification(newUserCredential.user);
       return newUserCredential.user;
-    } catch (error) {
-      throw error;
+    } catch (error: any) {
+      console.dir(error);
+      if (error.code === 'auth/invalid-email') {
+        throw new Error('Please enter a valid email address and try again.');
+      } else if (error.code === 'auth/weak-password') {
+        throw new Error(
+          'Your password is too short, it needs to be at least 6 characters long'
+        );
+      } else if (error.code === 'auth/email-already-in-use') {
+        throw new Error('That email is already in use');
+      } else {
+        throw new Error('Something went wrong, please try again later');
+      }
     }
   }
 
-  resetPassword(email: string): Promise<void> {
-    return sendPasswordResetEmail(this.auth, email);
+  async resetPassword(email: string): Promise<void> {
+    try {
+      return await sendPasswordResetEmail(this.auth, email);
+    } catch (error: any) {
+      if (
+        error.code === 'auth/invalid-email' ||
+        error.code === 'auth/wrong-password'
+      ) {
+        throw new Error(
+          'There was a problem with your email or password, please try again'
+        );
+      } else {
+        throw new Error('Something went wrong, please try again later');
+      }
+    }
   }
 
   logout(): Promise<void> {

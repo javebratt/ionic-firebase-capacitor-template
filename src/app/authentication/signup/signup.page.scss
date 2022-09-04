@@ -1,0 +1,13 @@
+.signup-page {
+  &__auth-form {
+    ion-item {
+      margin-bottom: 16px;
+    }
+  }
+  &__signup-button {
+    margin-top: 30px;
+  }
+  &__social-button {
+    margin-bottom: 16px;
+  }
+}

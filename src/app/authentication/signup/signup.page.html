@@ -1,13 +1,128 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
+      <ion-back-button defaultHref="signup"></ion-back-button>
     </ion-buttons>
     <ion-title>Create an Account</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <!-- content -->
-<ion-content class="ion-padding">
-  <p>This will be the signup page.</p>
+<ion-content class="ion-padding signup-page">
+  <h1 class="ion-text-center signup-page__title">Welcome to MyAppName</h1>
+
+  <form [formGroup]="authForm" class="signup-page__auth-form">
+    <ion-item fill="outline" class="signup-page__auth-item">
+      <ion-label position="floating" class="signup-page__auth-item__label"
+        >Name</ion-label
+      >
+      <ion-input
+        type="text"
+        placeholder="What's your name?"
+        clearInput="true"
+        formControlName="name"
+        class="signup-page__auth-item__input"
+        [class.invalid-input]="
+          !authForm.controls.name.valid &&
+          authForm.controls.name.touched
+        "
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="
+          !authForm.controls.name?.valid &&
+          authForm.controls.name?.touched
+        "
+      >
+        Please add your name
+      </ion-note>
+    </ion-item>
+
+    <ion-item fill="outline" class="signup-page__auth-item">
+      <ion-label position="floating" class="signup-page__auth-item__label"
+        >Email</ion-label
+      >
+      <ion-input
+        type="email"
+        placeholder="Your email address"
+        clearInput="true"
+        formControlName="email"
+        class="signup-page__auth-item__input"
+        [class.invalid-input]="
+          !authForm.controls.email.valid &&
+          authForm.controls.email.touched
+        "
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="
+          !authForm.controls.email?.valid &&
+          authForm.controls.email?.touched
+        "
+      >
+        A valid email address is required
+      </ion-note>
+    </ion-item>
+
+    <ion-item fill="outline" class="signup-page__auth-item">
+      <ion-label position="floating" class="signup-page__auth-item__label"
+        >Password</ion-label
+      >
+      <ion-input
+        type="password"
+        placeholder="Password"
+        clearInput="true"
+        formControlName="password"
+        class="signup-page__auth-item__input"
+        [class.invalid-input]="
+          !authForm.controls.password.valid &&
+          authForm.controls.password.touched
+        "
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="
+          !authForm.controls.password?.valid &&
+          authForm.controls.password?.touched
+        "
+      >
+        A valid password is required
+      </ion-note>
+    </ion-item>
+
+    <!-- TODO: Add proper type to this form value -->
+    <ion-button
+      class="signup-page__signup-button"
+      (click)="signup(authForm.value)"
+      strong="true"
+      expand="block"
+      >Create Account</ion-button
+    >
+  </form>
+
+  <p class="ion-text-end signup-page__social-signup-label">or continue with:</p>
+
+  <ion-button
+    class="signup-page__social-button"
+    fill="outline"
+    expand="block"
+    shape="round"
+    color="dark"
+    (click)="signupWithGoogle()"
+  >
+    <ion-icon slot="start" src="assets/icon/logo-google.svg"></ion-icon>
+    Sign in with Google
+  </ion-button>
+
+  <ion-button
+    class="signup-page__social-button"
+    fill="outline"
+    expand="block"
+    shape="round"
+    color="dark"
+    (click)="signupWithApple()"
+  >
+    <ion-icon slot="start" src="assets/icon/logo-apple-black.svg"></ion-icon>
+    Sign in with Apple
+  </ion-button>
 </ion-content>
