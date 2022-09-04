@@ -11,15 +11,11 @@ import {
   UserCredential,
   GoogleAuthProvider,
   signInWithPopup,
-  updateCurrentUser,
   updateProfile,
 } from '@angular/fire/auth';
 import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
 import { AuthCredentials } from './authentication.models';
-import { isPlatform } from '@ionic/angular';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
-import { googleClientId } from '../../environments/credentials';
 
 @Injectable({
   providedIn: 'root',
@@ -87,15 +83,16 @@ export class AuthenticationService {
 
   async resetPassword(email: string): Promise<void> {
     try {
+      console.log(email);
       return await sendPasswordResetEmail(this.auth, email);
     } catch (error: any) {
-      if (
-        error.code === 'auth/invalid-email' ||
-        error.code === 'auth/wrong-password'
-      ) {
+      console.dir(error);
+      if (error.code === 'auth/user-not-found') {
         throw new Error(
-          'There was a problem with your email or password, please try again'
+          `If there is an account with that email we'll send a confirmation link in a few moments`
         );
+      } else if (error.code === 'auth/invalid-email') {
+        throw new Error('Please add a valid email address');
       } else {
         throw new Error('Something went wrong, please try again later');
       }

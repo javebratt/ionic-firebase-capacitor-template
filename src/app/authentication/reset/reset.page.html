@@ -1,12 +1,53 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
+      <ion-back-button defaultHref="reset"></ion-back-button>
     </ion-buttons>
     <ion-title>Reset your Password</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <p>This will be the resest password page.</p>
+<ion-content class="ion-padding reset-page">
+  <h1 class="ion-text-center reset-page__title">MyApp Name</h1>
+
+  <h2 class="ion-text-center reset-page__subtitle">
+    Welcome back, sign into your account
+  </h2>
+
+  <form [formGroup]="authForm" class="reset-page__auth-form">
+    <ion-item fill="outline" class="reset-page__auth-item">
+      <ion-label position="floating" class="reset-page__auth-item__label"
+        >Email</ion-label
+      >
+      <ion-input
+        type="email"
+        placeholder="Your email address"
+        clearInput="true"
+        formControlName="email"
+        class="reset-page__auth-item__input"
+        [class.invalid-input]="
+          !authForm.controls.email.valid &&
+          authForm.controls.email.touched
+        "
+      ></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="
+          !authForm.controls.email?.valid &&
+          authForm.controls.email?.touched
+        "
+      >
+        A valid email address is required
+      </ion-note>
+    </ion-item>
+
+    <!-- TODO: Add proper type to this form value -->
+    <ion-button
+      class="reset-page__reset-button"
+      (click)="reset(authForm.value.email)"
+      strong="true"
+      expand="block"
+      >Send Reset Email</ion-button
+    >
+  </form>
 </ion-content>
