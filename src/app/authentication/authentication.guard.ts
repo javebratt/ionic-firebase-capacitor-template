@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
-import { filter, Observable, tap } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
+import { Observable, tap } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
@@ -17,13 +12,13 @@ export class AuthenticationGuard implements CanActivate {
     private readonly router: Router
   ) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> {
+  canActivate(): Observable<boolean> {
     return this.authenticationService.isLoggedIn().pipe(
-      filter((isLoggedIn) => !isLoggedIn),
-      tap(() => this.router.navigateByUrl('/user/login'))
+      tap((isLoggedIn) => {
+        if (!isLoggedIn) {
+          this.router.navigateByUrl('/user/login');
+        }
+      })
     );
   }
 }
