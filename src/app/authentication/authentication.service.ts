@@ -36,8 +36,21 @@ export class AuthenticationService {
     return this.getUser().pipe(map(Boolean));
   }
 
-  login({ email, password }: AuthCredentials): Promise<UserCredential> {
-    return signInWithEmailAndPassword(this.auth, email, password);
+  async login({ email, password }: AuthCredentials): Promise<UserCredential> {
+    try {
+      return await signInWithEmailAndPassword(this.auth, email, password);
+    } catch (error: any) {
+      if (
+        error.code === 'auth/invalid-email' ||
+        error.code === 'auth/wrong-password'
+      ) {
+        throw new Error(
+          'There was a problem with your email or password, please try again'
+        );
+      } else {
+        throw new Error('Something went wrong, please try again later');
+      }
+    }
   }
 
   async signup({ email, password }: AuthCredentials): Promise<User> {
