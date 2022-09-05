@@ -29,7 +29,7 @@ export class LoginPage {
   login({ email, password }: AuthCredentials): void {
     this.authenticationService
       .login({ email, password })
-      .then((userCredential) => {
+      .then(() => {
         this.router.navigateByUrl('');
       })
       .catch((error) => {
