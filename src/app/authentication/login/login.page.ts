@@ -12,7 +12,7 @@ import { AlertService } from '../../shared/services/alert.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  readonly authForm = this.formBuilder.group({
+  readonly loginForm = this.formBuilder.group({
     email: ['', Validators.compose([Validators.required, Validators.email])],
     password: [
       '',

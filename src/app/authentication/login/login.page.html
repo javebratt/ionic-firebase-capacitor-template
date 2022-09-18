@@ -5,7 +5,7 @@
     Welcome back, sign into your account
   </h2>
 
-  <form [formGroup]="authForm" class="login-page__auth-form">
+  <form [formGroup]="loginForm" class="login-page__auth-form">
     <ion-item fill="outline" class="login-page__auth-item">
       <ion-label position="floating" class="login-page__auth-item__label"
         >Email</ion-label
@@ -17,15 +17,15 @@
         formControlName="email"
         class="login-page__auth-item__input"
         [class.invalid-input]="
-          !authForm.controls.email.valid &&
-          authForm.controls.email.touched
+          !loginForm.controls.email.valid &&
+          loginForm.controls.email.touched
         "
       ></ion-input>
       <ion-note
         slot="error"
         *ngIf="
-          !authForm.controls.email?.valid &&
-          authForm.controls.email?.touched
+          !loginForm.controls.email?.valid &&
+          loginForm.controls.email?.touched
         "
       >
         A valid email address is required
@@ -43,15 +43,15 @@
         formControlName="password"
         class="login-page__auth-item__input"
         [class.invalid-input]="
-          !authForm.controls.password.valid &&
-          authForm.controls.password.touched
+          !loginForm.controls.password.valid &&
+          loginForm.controls.password.touched
         "
       ></ion-input>
       <ion-note
         slot="error"
         *ngIf="
-          !authForm.controls.password?.valid &&
-          authForm.controls.password?.touched
+          !loginForm.controls.password?.valid &&
+          loginForm.controls.password?.touched
         "
       >
         A valid password is required
@@ -61,7 +61,7 @@
     <!-- TODO: Add proper type to this form value -->
     <ion-button
       class="login-page__login-button"
-      (click)="login(authForm.value)"
+      (click)="login(loginForm.value)"
       strong="true"
       expand="block"
       >Sign In</ion-button
