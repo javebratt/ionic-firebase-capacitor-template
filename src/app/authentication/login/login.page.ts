@@ -26,15 +26,13 @@ export class LoginPage {
     private readonly alertService: AlertService
   ) {}
 
-  login({ email, password }: AuthCredentials): void {
-    this.authenticationService
-      .login({ email, password })
-      .then(() => {
-        this.router.navigateByUrl('');
-      })
-      .catch((error) => {
-        this.alertService.presentInformationAlert(error);
-      });
+  async login({ email, password }: AuthCredentials): Promise<void> {
+    try {
+      await this.authenticationService.login({ email, password });
+      void this.router.navigateByUrl('');
+    } catch (error) {
+      this.alertService.presentInformationAlert(error);
+    }
   }
 
   loginWithGoogle() {
