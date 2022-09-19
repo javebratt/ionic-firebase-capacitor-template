@@ -31,7 +31,7 @@ export class LoginPage {
       await this.authenticationService.login({ email, password });
       void this.router.navigateByUrl('');
     } catch (error) {
-      this.alertService.presentInformationAlert(error);
+      this.alertService.presentInformationAlert(error as string);
     }
   }
 
