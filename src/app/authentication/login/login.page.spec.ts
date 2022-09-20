@@ -1,23 +1,23 @@
-import { fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { IonicModule } from '@ionic/angular';
+import { createSpyFromClass } from 'jasmine-auto-spies';
 import { AlertService } from '../../shared/services/alert.service';
 import { AuthenticationService } from '../authentication.service';
-import { RouterTestingModule } from '@angular/router/testing';
 
-import { LoginPage } from './login.page';
 import { Router } from '@angular/router';
+import { LoginPage } from './login.page';
 
 const mockCredentials = { email: 'jorge@jorgevergara.co', password: '123456' };
 const setup = async () => {
-  const mockAuthenticationService = jasmine.createSpyObj(
-    'AuthenticationService',
-    ['login']
-  );
+  const mockAuthenticationService = createSpyFromClass(AuthenticationService, {
+    methodsToSpyOn: ['login'],
+  });
 
-  const mockAlertService = jasmine.createSpyObj('AlertService', [
-    'presentInformationAlert',
-  ]);
+  const mockAlertService = createSpyFromClass(AlertService, {
+    methodsToSpyOn: ['presentInformationAlert'],
+  });
 
   await TestBed.configureTestingModule({
     declarations: [LoginPage],
@@ -56,6 +56,7 @@ describe('LoginPage', () => {
   it('calls authentication service login method', async () => {
     const { component, mockAuthenticationService, router, fixture } =
       await setup();
+
     spyOn(router, 'navigateByUrl');
     component.login(mockCredentials);
 
