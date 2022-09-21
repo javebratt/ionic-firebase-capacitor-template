@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
 import { AlertService } from '../../shared/services/alert.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-reset',
@@ -18,16 +18,14 @@ export class ResetPage {
     private readonly alertService: AlertService
   ) {}
 
-  reset(email: string): void {
-    this.authenticationService
-      .resetPassword(email)
-      .then(() => {
-        this.alertService.presentInformationAlert(
-          `If there is an account with that email we'll send a confirmation link in a few moments`
-        );
-      })
-      .catch((error) => {
-        this.alertService.presentInformationAlert(error);
-      });
+  async reset(email: string): Promise<void> {
+    try {
+      await this.authenticationService.resetPassword(email);
+      this.alertService.presentInformationAlert(
+        `If there is an account with that email we'll send a confirmation link in a few moments`
+      );
+    } catch (error) {
+      this.alertService.presentInformationAlert(error as string);
+    }
   }
 }

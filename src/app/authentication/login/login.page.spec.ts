@@ -53,33 +53,38 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('calls authentication service login method', async () => {
-    const { component, mockAuthenticationService, router, fixture } =
-      await setup();
+  describe('login', () => {
+    it('calls authentication service login method', async () => {
+      const { component, mockAuthenticationService, router, fixture } =
+        await setup();
 
-    spyOn(router, 'navigateByUrl');
-    component.login(mockCredentials);
+      spyOn(router, 'navigateByUrl');
+      component.login(mockCredentials);
 
-    expect(mockAuthenticationService.login).toHaveBeenCalledTimes(1);
-    expect(mockAuthenticationService.login).toHaveBeenCalledWith(
-      mockCredentials
-    );
+      expect(mockAuthenticationService.login).toHaveBeenCalledOnceWith(
+        mockCredentials
+      );
 
-    fixture.detectChanges();
-    await fixture.whenStable();
-    expect(router.navigateByUrl).toHaveBeenCalledOnceWith('');
-  });
+      fixture.detectChanges();
+      await fixture.whenStable();
+      expect(router.navigateByUrl).toHaveBeenCalledOnceWith('');
+    });
 
-  it('calls alert service when there is an error', async () => {
-    const { component, mockAuthenticationService, fixture, mockAlertService } =
-      await setup();
+    it('calls alert service when there is an error', async () => {
+      const {
+        component,
+        mockAuthenticationService,
+        fixture,
+        mockAlertService,
+      } = await setup();
 
-    mockAuthenticationService.login.and.throwError('error');
+      mockAuthenticationService.login.and.throwError('error');
 
-    component.login(mockCredentials);
+      component.login(mockCredentials);
 
-    fixture.detectChanges();
-    await fixture.whenStable();
-    expect(mockAlertService.presentInformationAlert).toHaveBeenCalled();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      expect(mockAlertService.presentInformationAlert).toHaveBeenCalled();
+    });
   });
 });

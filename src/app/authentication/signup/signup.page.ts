@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
 import { isPlatform } from '@ionic/angular';
-import { AuthCredentials } from '../authentication.models';
 import { AlertService } from '../../shared/services/alert.service';
+import { AuthCredentials } from '../authentication.models';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,15 +27,13 @@ export class SignupPage {
     private readonly alertService: AlertService
   ) {}
 
-  signup({ email, password, name }: AuthCredentials): void {
-    this.authenticationService
-      .signup({ email, password, name })
-      .then(() => {
-        this.router.navigateByUrl('');
-      })
-      .catch((error) => {
-        this.alertService.presentInformationAlert(error);
-      });
+  async signup({ email, password, name }: AuthCredentials): Promise<void> {
+    try {
+      await this.authenticationService.signup({ email, password, name });
+      this.router.navigateByUrl('');
+    } catch (error) {
+      this.alertService.presentInformationAlert(error as string);
+    }
   }
 
   signupWithGoogle() {
