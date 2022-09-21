@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
 import { isPlatform } from '@ionic/angular';
-import { AuthCredentials } from '../authentication.models';
 import { AlertService } from '../../shared/services/alert.service';
+import { AuthCredentials } from '../authentication.models';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-login',

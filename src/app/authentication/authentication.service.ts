@@ -3,15 +3,15 @@ import {
   Auth,
   authState,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
+  updateProfile,
   User,
   UserCredential,
-  GoogleAuthProvider,
-  signInWithPopup,
-  updateProfile,
 } from '@angular/fire/auth';
 import { doc, Firestore, setDoc } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
@@ -45,6 +45,12 @@ export class AuthenticationService {
         throw new Error(
           'There was a problem with your email or password, please try again'
         );
+      } else if (
+        error.message.startsWith(
+          `Firebase: HTTP Cloud Function returned an error`
+        )
+      ) {
+        throw new Error('Your email has not been verified');
       } else {
         throw new Error('Something went wrong, please try again later');
       }
