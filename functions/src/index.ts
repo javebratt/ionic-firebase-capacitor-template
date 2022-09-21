@@ -1,9 +1,10 @@
-import * as functions from "firebase-functions";
+import * as functions from 'firebase-functions';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+export const beforeLogin = functions.auth.user().beforeSignIn((user) => {
+  if (!user.emailVerified) {
+    throw new functions.auth.HttpsError(
+      'invalid-argument',
+      `The email "${user.email}" has not been verified.`
+    );
+  }
+});
