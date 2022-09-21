@@ -62,12 +62,12 @@ If there are items you'd like added or prioritized let me know, you can open an 
 
 - [x] Firebase Initialization and Configuration.
 - [ ] Authentication.
-  - [ ] Auth page with login/signup form.
+  - [x] Auth page with login/signup form.
   - [ ] Add buttons for social login.
   - [x] Separate the auth functions to a service.
   - [x] Add send email verification to the signup form.
-  - [ ] Check the Firebase Authentication Functions to add security checks (_For example, only verified emails can log in_).
-  - [ ] Add unit tests
+  - [x] Check the Firebase Authentication Functions to add security checks (_For example, only verified emails can log in_).
+  - [x] Add unit tests
 - [ ] CRUD (_using Firestore_).
   - [ ] Master/Detail: A list page with a detail page.
   - [ ] Check if I should add an update page or use the detail page as an update?
