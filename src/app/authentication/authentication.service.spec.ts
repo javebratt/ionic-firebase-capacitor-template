@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { Auth } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
+import { createSpyFromClass } from 'jasmine-auto-spies';
 
 import { AuthenticationService } from './authentication.service';
 
 const setup = () => {
-  const mockAuth = jasmine.createSpyObj('Auth', ['signInWithEmailAndPassword']);
-  const mockFirestore = jasmine.createSpyObj('Firestore', ['addDoc']);
+  const mockAuth = createSpyFromClass(Auth);
+  const mockFirestore = createSpyFromClass(Firestore);
+
   TestBed.configureTestingModule({
     providers: [
       { provide: Auth, useValue: mockAuth },
